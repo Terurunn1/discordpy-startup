@@ -14,7 +14,6 @@ async def on_command_error(ctx, error):
 @client.event
 async def on_ready():
     await greeting_gm() #この中のwhile Trueを延々とループするために
-    await greeting_gn() #この行に到達できない
 
 async def greeting_gm():
     while True:

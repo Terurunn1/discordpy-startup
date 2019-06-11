@@ -28,7 +28,7 @@ async def greeting_gm():
             outPut +="\n怒りのバフォメット : キャッスルリバース"
             outPut +="\nアクレオン : ラベンダー島"
             outPut +="\nイカル・マード : アイスクラウン"
-        elif 10 >= nowMinutes :
+        elif 10 == nowMinutes :
             outPut +="以下のボスが次回(15分)出現します。"
             outPut +="\nグリフォン : 冷たい心臓"
             outPut +="\nウレウス : ナズカル入口"

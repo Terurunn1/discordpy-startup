@@ -48,7 +48,7 @@ async def boss(ctx):
     elif nowMinutes > 40 and 55 >= nowMinutes :
         outPut +="以下のボスが次回(55分)出現します。"
         outPut +="\nデブリンウォーリアー : ロイヤルロード南部"
-        outPut +="\nペカノス	 : 傷ついた峡谷"
+        outPut +="\nペカノス	: 傷ついた峡谷"
         outPut +="\nアマドン	 : ルデリーアリーナ"
 
     await ctx.send(outPut)

@@ -8,6 +8,7 @@ import asyncio
 bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
 client = discord.Client()
+channel_bot_test = [channel for channel in client.get_all_channels() if channel.id == '587930463801442305'][0]
 
 @client.event
 async def on_ready():
@@ -22,14 +23,14 @@ async def on_message(message):
     if message.content.startswith('!test'):
         counter = 0
         tmp = await client.send_message(message.channel, 'Calculating messages...')
-        async for log in client.logs_from(message.channel, limit=100):
+        async for log in client.logs_from(channel_bot_test, limit=100):
             if log.author == message.author:
                 counter += 1
 
         await client.edit_message(tmp, 'You have {} messages.'.format(counter))
     elif message.content.startswith('!sleep'):
         await asyncio.sleep(5)
-        await client.send_message(message.channel, 'Done sleeping')
+        await client.send_message(channel_bot_test, 'Done sleeping')
 
 @bot.event
 async def on_command_error(ctx, error):

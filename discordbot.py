@@ -2,7 +2,7 @@ from discord.ext import commands
 from datetime import datetime
 import os
 import traceback
-from asyncio import asyncio
+import asyncio
 
 bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']

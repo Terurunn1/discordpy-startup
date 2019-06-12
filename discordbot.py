@@ -62,7 +62,7 @@ async def ping(ctx):
 async def boss(ctx):
     #現在の時刻(分)を取得する。
     nowMinutes = int(datetime.now().strftime('%M'))
-    outPutBossInfo = bossInfo(inputTime)
+    outPutBossInfo = bossInfo(nowMinutes)
     await ctx.send(outPutBossInfo)
 
 bot.run(token)

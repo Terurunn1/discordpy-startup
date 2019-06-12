@@ -22,7 +22,7 @@ async def on_ready():
 async def on_message(message):
     if client.user in message.mentions: # 話しかけられたかの判定
         reply = f'{message.author.mention} 呼んだ？' # 返信メッセージの作成
-        await message.channel.send(reply) # 返信メッセージを送信
+        await ctx.send(reply) # 返信メッセージを送信
     """メッセージを処理"""
     if message.author.bot:  # ボットのメッセージをハネる
         return

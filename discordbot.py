@@ -66,8 +66,6 @@ async def boss(ctx):
     outPutBossInfo = bossInfo(nowMinutes)
     await ctx.send(outPutBossInfo)
 
-bot.run(token)
-
 def bossInfo(inputTime):
     outPut = ""
     if inputTime > 55 or inputTime <= 5 :
@@ -102,3 +100,4 @@ def bossInfo(inputTime):
 
     return outPut
 
+bot.run(token)

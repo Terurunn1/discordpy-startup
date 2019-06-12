@@ -20,13 +20,14 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
+    """メッセージを処理"""
+    if message.author.bot:  # ボットのメッセージをハネる
+    　   return
+    
     if client.user in message.mentions: # 話しかけられたかの判定
         reply = f'{message.author.mention} 呼んだ？' # 返信メッセージの作成
         await ctx.send(reply) # 返信メッセージを送信
-    """メッセージを処理"""
-    if message.author.bot:  # ボットのメッセージをハネる
-        return
-
+    
     if message.content == "!眠たい":
         # チャンネルへメッセージを送信
         await message.channel.send(f"{message.author.mention}さん 寝ましょう")  # f文字列（フォーマット済み文字列リテラル）
@@ -55,43 +56,49 @@ async def on_command_error(ctx, error):
 
 @bot.command()
 async def ping(ctx):
-    await ctx.send('自作ボットのテスト中です')
+    await ctx.send('Botは動作しています')
 
 @bot.command()
 async def boss(ctx):
     #現在の時刻(分)を取得する。
     nowMinutes = int(datetime.now().strftime('%M'))
+    outPutBossInfo = bossInfo(inputTime)
+    await ctx.send(outPutBossInfo)
+
+bot.run(token)
+
+
+def bossInfo(inputTime):
     outPut = ""
-    print(nowMinutes)
-    if nowMinutes > 55 or nowMinutes <= 5 :
+    if inputTime > 55 or inputTime <= 5 :
+        #次の出現までの残り時間を計算する。
+        nextTime(nowMinutes)
         outPut += "以下のボスが次回(5分)出現します。"
         outPut +="\nドゥンドゥン : カニング廃棄物処理場"
         outPut +="\nロロとムムス : バウム木"
         outPut +="\n怒りのバフォメット : キャッスルリバース"
         outPut +="\nアクレオン : ラベンダー島"
         outPut +="\nイカル・マード : アイスクラウン"
-    elif nowMinutes > 5 and 15 >= nowMinutes :
+    elif inputTime > 5 and 15 >= inputTime :
         outPut +="以下のボスが次回(15分)出現します。"
         outPut +="\nグリフォン : 冷たい心臓"
         outPut +="\nウレウス : ナズカル入口"
         outPut +="\n冷血なバフォメット : 雪の花峰"
-    elif nowMinutes > 15 and 25 >= nowMinutes :
+    elif inputTime > 15 and 25 >= inputTime :
         outPut +="以下のボスが次回(25分)出現します。"  
         outPut +="\nグリフィーナ : トリニアン街道"
         outPut +="\nトトとググス : 赤い口笛の絶壁"
-    elif nowMinutes > 25 and 35 >= nowMinutes :
+    elif inputTime > 25 and 35 >= inputTime :
         outPut +="以下のボスが次回(35分)出現します。"  
         outPut +="\nバヤールの門番 : 切り立った崖の要塞"
         outPut +="\nジャイアントタートル : ビーチウェイ”111″"
-    elif nowMinutes > 35 and 40 >= nowMinutes :
+    elif inputTime > 35 and 40 >= inputTime :
         outPut +="\n以下のボスが次回(40分)出現します。"
         outPut +="\nアルファタートル : エルーア川辺"
-    elif nowMinutes > 40 and 55 >= nowMinutes :
+    elif inputTime > 40 and 55 >= inputTime :
         outPut +="以下のボスが次回(55分)出現します。"
         outPut +="\nデブリンウォーリアー : ロイヤルロード南部"
-        outPut +="\nペカノス	 : 傷ついた峡谷"
-        outPut +="\nアマドン	 : ルデリーアリーナ"
+        outPut +="\nペカノス     : 傷ついた峡谷"
+        outPut +="\nアマドン     : ルデリーアリーナ"
 
-    await ctx.send(outPut)
-
-bot.run(token)
+    return outPut

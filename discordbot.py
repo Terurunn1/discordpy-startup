@@ -5,6 +5,7 @@ import traceback
 import discord
 import asyncio
 import re
+import random  # おみくじで使用
 
 bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
@@ -44,6 +45,7 @@ async def on_message(message):
         # ダイレクトメッセージ送信
         dm = await message.author.create_dm()
         await dm.send(f"{message.author.mention}さんにダイレクトメッセージ")
+
 @bot.event
 async def on_command_error(ctx, error):
     await ctx.send(str(error))

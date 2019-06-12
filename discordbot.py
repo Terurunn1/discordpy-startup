@@ -2,9 +2,11 @@ from discord.ext import commands
 from datetime import datetime
 import os
 import traceback
+import discord
 
 bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
+client = discord.Client()
 
 @client.event
 async def on_ready():

@@ -1,4 +1,5 @@
 from discord.ext import commands
+from datetime import datetime
 import os
 import traceback
 
@@ -13,9 +14,9 @@ async def on_command_error(ctx, error):
 
 @bot.command()
 async def ping(ctx):
-    await ctx.send('自作ボットのテスト中です。')
+    await ctx.send('自作ボットのテスト中です')
 
-    @bot.command()
+@bot.command()
 async def boss(ctx):
     #現在の時刻(分)を取得する。
     nowMinutes = int(datetime.now().strftime('%M'))
@@ -51,6 +52,5 @@ async def boss(ctx):
         outPut +="\nアマドン	 : ルデリーアリーナ"
 
     await ctx.send(outPut)
-
 
 bot.run(token)

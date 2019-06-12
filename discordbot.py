@@ -12,7 +12,7 @@ async def on_ready():
     print(client.user.name)
     print(client.user.id)
     print('------')
-    
+
 @client.event
 async def on_message(message):
     # 「おはよう」で始まるか調べる
@@ -22,13 +22,11 @@ async def on_message(message):
             # メッセージを書きます
             m = "おはようございます" + message.author.name + "さん！"
             # メッセージが送られてきたチャンネルへメッセージを送ります
-            await message.channel.send(m)   
+            await message.channel.send(m) 
 
-    
 @bot.event
 async def on_command_error(ctx, error):
     await ctx.send(str(error))
-
 
 @bot.command()
 async def ping(ctx):

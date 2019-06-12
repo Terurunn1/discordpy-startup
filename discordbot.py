@@ -72,7 +72,6 @@ def bossInfo(inputTime):
     outPut = ""
     if inputTime > 55 or inputTime <= 5 :
         #次の出現までの残り時間を計算する。
-        nextTime(nowMinutes)
         outPut += "以下のボスが次回(5分)出現します。"
         outPut +="\nドゥンドゥン : カニング廃棄物処理場"
         outPut +="\nロロとムムス : バウム木"

@@ -3,10 +3,6 @@ import asyncio
 
 client = discord.Client()
 
-@bot.event
-async def on_command_error(ctx, error):
-    await ctx.send(str(error))
-
 @client.event
 async def on_ready():
     asyncio.ensure_future(greeting_gm())

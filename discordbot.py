@@ -24,7 +24,7 @@ async def on_message(message):
             # メッセージを書きます
             m = "おはようございます" + message.author.name + "さん！"
             # メッセージが送られてきたチャンネルへメッセージを送ります
-            await message.channel.send(m) 
+            await ctx.send(m)
 
 @bot.event
 async def on_command_error(ctx, error):

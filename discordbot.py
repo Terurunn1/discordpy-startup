@@ -1,14 +1,19 @@
-import discord
-import asyncio
+from discord.ext import commands
+import os
+import traceback
 
-client = discord.Client()
+bot = commands.Bot(command_prefix='/')
+token = os.environ['DISCORD_BOT_TOKEN']
 
-@client.event
-async def on_ready():
-    asyncio.ensure_future(greeting_gm())
 
-async def greeting_gm():
-    await client.send_message(channel, 'おはよう')
-    await asyncio.sleep(10)
+@bot.event
+async def on_command_error(ctx, error):
+    await ctx.send(str(error))
 
-client.run(token)
+
+@bot.command()
+async def ping(ctx):
+    await ctx.send('自作ボットのテスト中です。')
+
+
+bot.run(token)

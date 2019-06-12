@@ -4,6 +4,7 @@ import os
 import traceback
 import discord
 import asyncio
+import re
 
 bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
@@ -19,7 +20,7 @@ async def on_ready():
 #メッセージを受信したときの処理
 @client.event
 async def on_message(message):
-    if message.content.startswith('!test'):
+    if re.match("!test", message.content):
         counter = 0
         tmp = await client.send_message(message.channel, 'Calculating messages...')
         async for log in client.logs_from(message.channel, limit=100):
@@ -27,7 +28,7 @@ async def on_message(message):
                 counter += 1
 
         await client.edit_message(tmp, 'You have {} messages.'.format(counter))
-    elif message.content.startswith('!sleep'):
+    elif re.match("!sleep", message.content):
         await asyncio.sleep(5)
         await client.send_message(message.channel, 'Done sleeping')
 

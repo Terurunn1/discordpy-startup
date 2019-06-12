@@ -3,6 +3,7 @@ from datetime import datetime
 import os
 import traceback
 import asyncio
+import discord
 
 bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
@@ -51,6 +52,5 @@ async def greeting_gm():
             outPut +="\nアマドン	 : ルデリーアリーナ"
         await client.send_message(general, outPut)
         await client.sleep(60)
-
 
 bot.run(token)

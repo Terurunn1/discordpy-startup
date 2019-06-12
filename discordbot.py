@@ -3,6 +3,7 @@ from datetime import datetime
 import os
 import traceback
 import discord
+import asyncio
 
 bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
@@ -15,16 +16,20 @@ async def on_ready():
     print(client.user.id)
     print('------')
 
+#メッセージを受信したときの処理
 @client.event
 async def on_message(message):
-    # 「おはよう」で始まるか調べる
-    if message.content.startswith("おはよう"):
-        # 送り主がBotだった場合反応したくないので
-        if client.user != message.author:
-            # メッセージを書きます
-            m = "おはようございます" + message.author.name + "さん！"
-            # メッセージが送られてきたチャンネルへメッセージを送ります
-            await ctx.send(m)
+    if message.content.startswith('!test'):
+        counter = 0
+        tmp = await client.send_message(message.channel, 'Calculating messages...')
+        async for log in client.logs_from(message.channel, limit=100):
+            if log.author == message.author:
+                counter += 1
+
+        await client.edit_message(tmp, 'You have {} messages.'.format(counter))
+    elif message.content.startswith('!sleep'):
+        await asyncio.sleep(5)
+        await client.send_message(message.channel, 'Done sleeping')
 
 @bot.event
 async def on_command_error(ctx, error):

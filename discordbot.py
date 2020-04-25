@@ -8,7 +8,8 @@ import re
 import random  # おみくじで使用
 
 bot = commands.Bot(command_prefix='/')
-token = os.environ['DISCORD_BOT_TOKEN']
+token = os.environ['NTg3OTQ4NjkyNjkxMDkxNDU2.XqRlfQ.CBlZCHYAE3Ph1NkW6JVMk4AGvcw']
+#token = os.environ['DISCORD_BOT_TOKEN']
 client = discord.Client()
 
 @client.event

@@ -15,7 +15,7 @@ async def on_command_error(ctx, error):
 
 @bot.command()
 async def tsc(ctx):
-    await ctx.send('使いたい機能を実行する際は以下のコマンドを入力してください\n ■ブルプロクラフトレシピ /bpre [item No]\n　■ブルプロクラフト品リスト /bpli')
+    await ctx.send('使いたい機能を実行する際は以下のコマンドを入力してください\n ■ブルプロクラフトレシピ /bpre [item No]\n ■ブルプロクラフト品リスト /bpli')
 
 @bot.command()
 async def bpre(ctx, arg):

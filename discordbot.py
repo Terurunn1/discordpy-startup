@@ -15,7 +15,11 @@ async def on_command_error(ctx, error):
 
 @bot.command()
 async def ping(ctx):
-    await ctx.send('使いたい機能を選択してください\n１．ブルプロ関連\n２．')
+    await ctx.send('使いたい機能を実行する際は以下のコマンドを入力してください\n "/bpro" \n')
 
-
+@bot.command()
+async def bpro(ctx):
+    await ctx.send('動作テスト')
+                   
+                   
 bot.run(token)

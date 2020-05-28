@@ -15,6 +15,7 @@ async def on_command_error(ctx, error):
 
 @bot.command()
 async def tsc(ctx):
+    """BOTOの説明用コマンド"""
     await ctx.send('使いたい機能を実行する際は以下のコマンドを入力してください\n ■ブルプロクラフトレシピ /bpre [item No]\n ■ブルプロクラフト品リスト /bpli')
 
 @bot.command()
@@ -24,7 +25,7 @@ async def bpre(ctx, arg):
                    
 @bot.command()
 async def bpli(ctx):
-    """Adds two numbers together."""
+    """ブルプロのクラフト対象アイテムリストを表示します。"""
     await ctx.send('動作テスト')
                    
 bot.run(token)

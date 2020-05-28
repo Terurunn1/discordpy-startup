@@ -14,12 +14,17 @@ async def on_command_error(ctx, error):
 
 
 @bot.command()
-async def ping(ctx):
-    await ctx.send('使いたい機能を実行する際は以下のコマンドを入力してください\n /bpro \n')
+async def tsc(ctx):
+    await ctx.send('使いたい機能を実行する際は以下のコマンドを入力してください\n ■ブルプロクラフトレシピ /bpre [item No]\n　■ブルプロクラフト品リスト /bpli')
 
 @bot.command()
-async def bpro(ctx):
-    await ctx.send('動作テスト')
+async def bpre(ctx, arg):
+    """該当アイテムのレシピを表示します。"""
+    await ctx.send(arg+'番のアイテムが選択されました。(テスト)')
                    
+@bot.command()
+async def bpli(ctx):
+    """Adds two numbers together."""
+    await ctx.send('動作テスト')
                    
 bot.run(token)

@@ -27,7 +27,7 @@ async def bpre(ctx, arg):
 @bot.command()
 async def bpli(ctx):
     """ブルプロのクラフト対象アイテムリストを表示します。"""
-    await ctx.send('動作テスト')
+    await ctx.send('動　作テスト')
                  
     
 def viewrecipes():

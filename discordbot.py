@@ -30,32 +30,5 @@ async def bpre(ctx, arg):
 async def bpli(ctx):
     """ブルプロのクラフト対象アイテムリストを表示します。"""
     await ctx.send('動　作テスト')
-                 
-def viewrecipes():
-    print('Hello')
-
-    @client.event
-async def on_ready():
-    print('Logged in as')
-    print(client.user.name)
-    print(client.user.id)
-    print('------')
-
-@client.command()
-async def poll(ctx, about = "question", *args):
-    emojis = ["1⃣","2⃣","3⃣","4⃣"]
-
-    cnt = len(args)
-    message = discord.Embed(title=":speech_balloon: "+about,colour=0x1e90ff)
-    if cnt <= len(emojis):
-        for a in range(cnt):
-            message.add_field(name=f'{emojis[a]}{args[a]}', value="** **", inline=False)
-        msg = await ctx.send(embed=message)
-        #投票の欄
-        for i in range(cnt):
-            await msg.add_reaction(emojis[i])
-    else:
-        await ctx.send("すまないが項目は4つまでなんだ...")
-        
-        
+                         
 bot.run(token)
